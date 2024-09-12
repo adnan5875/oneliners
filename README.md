@@ -15,4 +15,36 @@ find . -type f -name slurm-\* -delete
 
 #slurm jobs
 to cancel slurm job using slurm job id
- squeue -u $USER | grep 20582305 | awk '{print $1}' | xargs -n 1 scancel
+ squeue -u $USER | grep 20582305 | awk '{print $1}' | xargs -n 1 cancel
+
+
+
+To remove all the files in a folder “OUTPUT’ 
+
+for year in {2013..2022}; 
+
+ do   rm ./$year/OUTPUT/*;  
+
+done 
+
+ 
+
+# find all the files in a folder with desired extension and then add deleted to remove files 
+
+find . -name "*.log" -type f 
+
+find . -name "*.log" -type f -delete 
+
+find . -name "*.out" -type f 
+
+find . -name "*.out" -type f -delete 
+
+ 
+
+find -type d -name "output" -exec rm -r {} + 
+
+ 
+
+To make all folders and files open access 
+
+chmod -R 777  /group/grains/pulses/adnan/chickpea_acidtol
